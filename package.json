@@ -10,6 +10,7 @@
   "dependencies": {},
   "devDependencies": {
     "@angular/cli": "^1.2.1",
+    "bootstrap": "^4.0.0-beta",
     "browser-sync": "^2.18.8",
     "css-annotation-block": "git+http://clepore@git.infor.com/scm/~clepore/css-annotation-block.git",
     "del": "^2.2.2",

@@ -1,0 +1,36 @@
+@import '_variables.css';
+
+/* --- Banner CSS for This Template --- */
+/* --- Selectors from Global CSS --- */
+._pendo-guide-container_ {
+    /* Guide border, shadow, background, etc. */
+    border: solid 1px var(--azure06);
+    background-color: var(--azure01);
+    border-radius: 2px;
+    padding: 15px 0;
+    margin: 5px auto 0 auto;
+    width: 95%;
+}
+
+._pendo-guide-container_ ._pendo-guide-content_ {
+    /* Content area: use for font attributes, padding, etc. */
+    text-align: center;
+    padding: 0;
+    color: var(--graphite10);
+    font-size: 14px;
+}
+
+._pendo-guide-container_ ._pendo-close-guide_ {
+    /* Close guide icon */
+    color: var(--graphite06);
+    display: inline;
+    font-weight: 200;
+    font-size: 22px;
+    top: 10px;
+    right: 15px;
+}
+
+._pendo-guide-container_ ._pendo-close-guide_:hover {
+    /* Close guide icon hover effects*/
+    color: var(--graphite10);
+}

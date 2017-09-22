@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="generator" content="pandoc" />
+    <meta name="author" content="Hook & Loop">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    $if(date-meta)$
+      <meta name="date" content="$date-meta$" />
+    $endif$
+
+    <title>$pagetitle$ - Pendo Styles</title>
+
+    $if(highlighting-css)$
+      <style type="text/css">
+        $highlighting-css$
+      </style>
+    $endif$
+
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  </head>
+
+  <body class="container-fluid">
+    <header class="navbar bg-dark navbar-dark">
+      <h1 class="navbar-brand">Pendio Soho Styles</h1>
+    </header>
+
+    <main class="row">
+
+      <!-- Leave this below to mimic other doc sites -->
+      <nav class="col-md-3">
+        <h2 class="site-sidebar--heading">Version $releaseversion$</h2>
+        <ul class="list-plain site-sidebar--nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/badge.html">Badge</a></li>
+          <li><a href="/banner.html">Banner</a></li>
+          <li><a href="/launcher.html">Themes &amp; Colors</a></li>
+          <li><a href="/lightbox.html">Buttons</a></li>
+          <li><a href="/tooltip.html">Forms</a></li>
+        </ul>
+      </nav>
+
+      <section class="col-md-9">
+        $if(title)$
+          <div id="$idprefix$header">
+            <h1>$title$</h1>
+            $if(subtitle)$
+              <h1>$subtitle$</h1>
+            $endif$
+            $if(date)$
+              <h3>$date$</h3>
+            $endif$
+            $if(description)$
+              <p>$description$</p>
+            $endif$
+          </div>
+        $endif$
+
+        <nav>
+          $if(toc)$
+            $toc$
+          $endif$
+        </nav>
+
+        $body$
+      </section>
+    </main>
+  </body>
+</html>

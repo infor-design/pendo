@@ -1,0 +1,17 @@
+/* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
+
+:root {
+  --white: #fff;
+
+  --azure01: #c8e9f4;
+  --azure06: #368ac0;
+  --azure07: #2578a9;
+
+  --graphite03: #bdbdbd;
+  --graphite06: #5c5c5c;
+  --graphite10: #1a1a1a;
+
+  --alert-red: #e84f4f;
+}
+
+/* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */

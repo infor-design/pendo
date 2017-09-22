@@ -1,8 +1,8 @@
 # Compiled #
 ############
-/site/dist
+site/www
+!site/www/images
 log/
-/dist
 
 # Packages #
 ############
