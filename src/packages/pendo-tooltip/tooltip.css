@@ -1,17 +1,16 @@
-@import '../pendo-base/base.css';
-
-
 /* Tooltips CSS for This Template */
 
+@import '../pendo-base/base.css';
+
 h1 {
-    color: var(--graphite10); /* color is soho-graphite10 */
+    color: var(--graphite10);
     font-size: 18px;
     font-weight: normal;
     padding: 20px 20px 2px;
 }
 
 p, ol, ul {
-    color: var(--graphite10); /* color is soho-graphite10 */
+    color: var(--graphite10);
     font-size: 14px;
     line-height: 20px;
     padding: 5px 20px;
@@ -33,13 +32,13 @@ p {
 }
 
 a {
-    color: var(--azure06); /* color is soho-azure06 */
+    color: var(--azure06);
     text-decoration: none;
 }
 
 .custom-button {
     border-top: solid 1px var(--graphite10);
-    color: var(--azure06); /* color is soho-azure06 */
+    color: var(--azure06);
     cursor: pointer;
     display: block;
     font-family: inherit;
@@ -58,23 +57,28 @@ a {
 }
 
 .red-text {
-    color: var(--alert-red); /* color is soho-red-alert */
+    color: var(--alert-red);
 }
 
 /* --- Selectors from Global CSS --- */
 ._pendo-guide-container_ {
     border-radius: 2px;
 }
-._pendo-guide-container_ ._pendo-close-guide_ {
+
+._pendo-guide-container_ {
+
+  & ._pendo-close-guide_ {
     /* Close guide icon */
-    color: var(--graphite06); /* color is soho-var(--graphite06) */
+    color: var(--graphite06);
     display: inline;
     font-weight: 200;
     font-size: 28px;
     top: 6px;
     right: 15px;
-}
-._pendo-guide-container_ ._pendo-close-guide_:hover {
+  }
+
+  & ._pendo-close-guide_:hover {
     /* Close guide icon hover effects*/
-    color: var(--graphite10); /* color is soho-graphite10 */
+    color: var(--graphite10);
+  }
 }

@@ -102,7 +102,7 @@ gulp.task('default', ['build', 'serve']);
 //   Task: Build Docs
 //   Build html documentation files
 // -------------------------------------
-gulp.task('build', ['compile-css'], () => {
+gulp.task('build', ['compile:css'], () => {
   const packageData = require('./package.json');
 
   const hbStream = hb()
@@ -110,13 +110,14 @@ gulp.task('build', ['compile-css'], () => {
       .data(RAW_CSS);
 
 
-  // console.log(RAW_CSS.lightbox);
   return gulp.src(`${sourcePath.packages}/**/README.md`)
+
+    // Rename filename from readme to the folder name
     .pipe(rename((path) => {
-      // Rename filename of readme to folder name
       path.basename = path.dirname.replace('pendo-', '');
     }))
 
+    // Adds raw css to pages with handlebars templates
     .pipe(hbStream)
 
     // Convert markdown to html and insert into layout template
@@ -148,7 +149,8 @@ gulp.task('compile:css', () => {
   const plugins = [
     atImport,
     atVariables,
-    cssnext
+    cssnext,
+    cssnano({ autoprefixer: false })
   ];
 
   // console.log(RAW_CSS)
@@ -194,9 +196,8 @@ gulp.task('stylelint', () => {
 //   Run things before committing
 // -------------------------------------
 gulp.task('pre-commit', () => {
-
   // // Lint only modified css files
-  // return gulp.src([`${sourcePath.packages}/**/*.css`, `${sourcePath.siteCss}/**/*.css`])
+  // return gulp.src(`${sourcePath.packages}/**/*.css`)
   //   .pipe(gitmodified(['modified']))
   //   .pipe(stylelint({
   //     failAfterError: true,
@@ -228,7 +229,8 @@ gulp.task('serve', () => {
   const srcMarkdown = [
     `${sourcePath.templates}/**/*`,
     `${sourcePath.packages}/**/*.md`,
-    `${sourcePath.packages}/**/*.css`
+    `${sourcePath.packages}/**/*.css`,
+    `${sourcePath.siteCss}/*`
   ];
 
   gulp

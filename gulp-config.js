@@ -9,7 +9,7 @@ module.exports = {
       packages:  'src/packages',
       templates: 'site/templates',
       site:      'site',
-      siteCss:   'site/css'
+      siteCss:   'site/www/css'
     },
     destinations: {
       site:  'site/www',

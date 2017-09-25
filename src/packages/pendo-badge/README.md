@@ -1,12 +1,20 @@
 ---
-title: Badge
-description: Description here
+title: Badge Configuration
+description: The badge configuration should be as follows to match the Soho theme.
 ---
 
-## Badge Configuration
+- Use the filled circle with the cutout `i` in the middle
+- The hexadecimal color is `#e84f4f` (aka "soho-alert-red")
 
-Badges should be as follows:
-- Use the filled circle with the cutout "i" in the middle
-- The hexadecimal color is var(--alert-red) (soho alert red)
-<img src="/img/badges.png" alt=""/>
-
+<table>
+    <thead>
+        <tr>
+            <th>Config</th>
+            <th>Preview</th>
+        </tr>
+    </thead>
+    <tr>
+        <td><img src="images/badge-config.png" alt="Badge config screenshot"/></td>
+        <td><img src="images/badge-preview.png" alt="Bdage preview screenshot"/></td>
+    </tr>
+</table>
