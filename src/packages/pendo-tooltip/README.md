@@ -14,7 +14,6 @@ The following is a basic scenario template to give you a title and subtext.
 > - Do not add a "button text" variable
 > - Do not add the `<button class="custom-button"></button>` tag in the html.
 
-
 <table>
     <thead>
         <tr>
@@ -27,10 +26,6 @@ The following is a basic scenario template to give you a title and subtext.
         <td><img src="images/tooltip-html.png" alt="Tooltip html screenshot"/></td>
     </tr>
 </table>
-
-
-{{> _cssCode cssStr=tooltipCss}}
-
 
 ## Tooltip Preview
 

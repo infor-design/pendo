@@ -22,14 +22,6 @@ The following is a basic scenario template to give you a title, body, and button
     </tr>
 </table>
 
-
-## CSS Code
-
-Copy the code below into the css tab of your Lightbox configuration.
-
-{{> _cssCode cssStr=lightboxCss}}
-
-
 ## Lightbox Preview
 
 <img src="images/lightbox.png" class="img-md" alt="Lightbox preview"/>
