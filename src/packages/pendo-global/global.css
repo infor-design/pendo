@@ -1,7 +1,101 @@
-@import '../pendo-base/base.css';
+@import '../pendo-base/_variables.css';
+
+._pendo-guide-container_ {
+  background-color: var(--white);
+  border-radius: 2px;
+  padding: 0;
+
+  & ._pendo-guide-content_ {
+    color: var(--graphite10);
+    font-size: 14px;
+    padding: 0;
+    text-align: center;
+
+    & h1 {
+      color: var(--graphite10);
+      font-size: 18px;
+      font-weight: normal;
+      line-height: normal;
+      padding: 20px 40px 2px 20px;
+      text-align: left;
+    }
+
+    & p,
+    & ol,
+    & ul {
+      color: var(--graphite10);
+      font-size: 14px;
+      line-height: 20px;
+      padding: 5px 20px;
+      text-align: left;
+    }
+
+    & ul {
+      list-style-type: disc;
+      margin-left: 15px;
+    }
+
+    & ol {
+      list-style-type: decimal;
+      margin-left: 15px;
+    }
+
+    & p {
+      margin: 10px 0;
+    }
+
+    & a {
+      color: var(--azure06);
+      text-decoration: none;
+    }
+
+    & .red-text {
+      color: #e84f4f;
+    }
+  }
+
+  & ._pendo-close-guide_ {
+    /* Close guide icon */
+    color: var(--graphite06);
+    display: inline;
+    font-weight: 200;
+    font-size: 22px;
+    top: 10px;
+    right: 15px;
+  }
+
+  & ._pendo-close-guide_:hover {
+    /* Close guide icon hover effects*/
+    color: var(--graphite10);
+  }
+}
 
 
-._pendo-guide-banner-top_ ._pendo-guide-container_ {
+/* Custom Button */
+._pendo-guide-container_ ._pendo-guide-content_ .custom-button {
+  background: #fff;
+  border: 0;
+  border-top: solid 1px var(--graphite03);
+  color: var(--azure06);
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: capitalize;
+  width: 100%;
+  white-space: nowrap;
+
+  &:hover {
+    color: #2578a9;
+  }
+}
+
+/* Banner Styles */
+._pendo-guide-banner-top_ > ._pendo-guide-container_ {
   /* Guide border, shadow, background, etc. */
   border: solid 1px var(--azure06);
   background-color: var(--azure01);
@@ -9,9 +103,6 @@
   padding: 15px 0;
   margin: 5px auto 0 auto;
   width: 95%;
-}
-
-._pendo-guide-banner-top_ ._pendo-guide-container_ {
 
   & ._pendo-guide-content_ {
     /* Content area: use for font attributes, padding, etc. */
@@ -29,77 +120,48 @@
         font-size: 22px;
     top: 10px;
     right: 15px;
-  }
 
-  & ._pendo-close-guide_:hover {
-    /* Close guide icon hover effects*/
-    color: var(--graphite10);
+    &:hover {
+      /* Close guide icon hover effects*/
+      color: var(--graphite10);
+    }
   }
 }
 
-._pendo-guide-container_ {
-  background-color: var(--white);
-
-  & ._pendo-guide-content_ h1 {
-    color: var(--graphite10);
-    font-size: 18px;
-    font-weight: normal;
-    padding: 20px 40px 2px 20px;
-    text-align: left;
-  }
-
-  & ._pendo-guide-content_ p,
-  & ._pendo-guide-content_ ol,
-  & ._pendo-guide-content_ ul {
-    color: var(--graphite10);
-    font-size: 14px;
-    line-height: 20px;
-    padding: 5px 20px;
-    text-align: left;
-  }
-
-  & ._pendo-guide-content_ ul {
-    list-style-type: disc;
-    margin-left: 15px;
-  }
-
-  & ._pendo-guide-content_ ol {
-    list-style-type: decimal;
-    margin-left: 15px;
-  }
-
-  & ._pendo-guide-content_ p {
-    margin: 10px 0;
-  }
-
-  & ._pendo-guide-content_ a {
-    color: var(--azure06);
-    text-decoration: none;
-  }
-
-  & ._pendo-guide-content_ .custom-button {
-    background: #fff;
+/* Launcher Overrides */
+._pendo-launcher_ {
+  & ._pendo-launcher-content_ {
     border: 0;
-    border-top: solid 1px var(--graphite03);
-    color: var(--azure06);
-    cursor: pointer;
-    display: block;
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: bold;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    text-transform: capitalize;
-    width: 100%;
-    white-space: nowrap;
   }
 
-  & ._pendo-guide-content_ .custom-button:hover {
-    color: #2578a9;
+  & ._pendo-launcher-header_ {
+    border-bottom: 0;
+    margin-top: 25px;
+    padding-bottom: 0;
+
+    & ._pendo-launcher-title_::before {
+      background-color: var(--azure06);
+      border-radius: 50%;
+      color: var(--white);
+      content: "i";
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 700;
+      height: 25px;
+      line-height: 25px;
+      margin-right: 8px;
+      position: relative;
+      text-align: center;
+      top: -3px;
+      width: 25px;
+    }
+
+    & img {
+      display: none;
+    }
   }
 
-  & ._pendo-guide-content_ .red-text {
-    color: #e84f4f;
+  & ._pendo-launcher-guide-listing_ ._pendo-launcher-item_ {
+    margin-bottom: 0;
   }
 }
