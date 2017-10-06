@@ -129,6 +129,7 @@ gulp.task('build', ['compile:css'], () => {
         `--data-dir=${sourcePath.site}`, // looks for template dir inside data-dir
         '--template=layout.html',
         '--table-of-contents',
+        '--toc-depth=4',
         `--variable=releaseversion:${packageData.version}`,
         `--variable=embeddedCss:${RAW_CSS}`,
         '--variable=lang:en'

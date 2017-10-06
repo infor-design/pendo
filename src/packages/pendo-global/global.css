@@ -11,8 +11,9 @@
   width: 95%;
 }
 
-._pendo-guide-banner-top_ {
-  & ._pendo-guide-container_ ._pendo-guide-content_ {
+._pendo-guide-banner-top_ ._pendo-guide-container_ {
+
+  & ._pendo-guide-content_ {
     /* Content area: use for font attributes, padding, etc. */
     text-align: center;
     padding: 0;
@@ -20,28 +21,31 @@
     font-size: 14px;
   }
 
-  & ._pendo-guide-container_ ._pendo-close-guide_ {
+  & ._pendo-close-guide_ {
     /* Close guide icon */
     color: var(--graphite06);
     display: inline;
     font-weight: 200;
-    font-size: 22px;
+        font-size: 22px;
     top: 10px;
     right: 15px;
   }
 
-  & ._pendo-guide-container_ ._pendo-close-guide_:hover {
+  & ._pendo-close-guide_:hover {
     /* Close guide icon hover effects*/
     color: var(--graphite10);
   }
 }
 
 ._pendo-guide-container_ {
+  background-color: var(--white);
+
   & ._pendo-guide-content_ h1 {
     color: var(--graphite10);
     font-size: 18px;
     font-weight: normal;
-    padding: 20px 20px 2px;
+    padding: 20px 40px 2px 20px;
+    text-align: left;
   }
 
   & ._pendo-guide-content_ p,
@@ -86,7 +90,7 @@
     height: 50px;
     line-height: 50px;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
     width: 100%;
     white-space: nowrap;
   }
