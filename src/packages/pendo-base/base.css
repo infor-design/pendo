@@ -15,7 +15,7 @@
     & h1 {
       color: var(--graphite10);
       font-size: 18px;
-      font-weight: normal;
+      font-weight: 400;
       line-height: normal;
       padding: 20px 40px 2px 20px;
       text-align: left;
@@ -59,14 +59,14 @@
     /* Close guide icon */
     color: var(--graphite06);
     display: inline;
-    font-weight: 200;
     font-size: 22px;
-    top: 10px;
+    font-weight: 200;
     right: 15px;
+    top: 10px;
   }
 
   & ._pendo-close-guide_:hover {
-    /* Close guide icon hover effects*/
+    /* Close guide icon hover effects */
     color: var(--graphite10);
   }
 }
@@ -81,13 +81,13 @@
   display: block;
   font-family: inherit;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
   height: 50px;
   line-height: 50px;
   text-align: center;
   text-transform: capitalize;
-  width: 100%;
   white-space: nowrap;
+  width: 100%;
 
   &:hover {
     color: #2578a9;

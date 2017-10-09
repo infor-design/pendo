@@ -100,7 +100,7 @@ gulp.task('default', ['build', 'serve']);
 
 // -------------------------------------
 //   Task: Build Docs
-//   Build html documentation files
+//   Build html documentation files from src/packages
 // -------------------------------------
 gulp.task('build', ['compile:css'], () => {
   const packageData = require('./package.json');
@@ -141,8 +141,10 @@ gulp.task('build', ['compile:css'], () => {
 
 
 // -------------------------------------
-//   Task: Default
-//   Does a build and serves the website
+//   Task: Compile:css
+//   Compiles/minifies css for adding
+//   into a template later so the users
+//   can copy the raw string
 // -------------------------------------
 
 gulp.task('compile:css', () => {
@@ -197,16 +199,16 @@ gulp.task('stylelint', () => {
 //   Run things before committing
 // -------------------------------------
 gulp.task('pre-commit', () => {
-  // // Lint only modified css files
-  // return gulp.src(`${sourcePath.packages}/**/*.css`)
-  //   .pipe(gitmodified(['modified']))
-  //   .pipe(stylelint({
-  //     failAfterError: true,
-  //     reporters: [{
-  //       formatter: 'verbose',
-  //       console: true
-  //     }]
-  //   }));
+  // Lint only modified css files
+  return gulp.src(`${sourcePath.packages}/**/*.css`)
+    .pipe(gitmodified(['modified']))
+    .pipe(stylelint({
+      failAfterError: true,
+      reporters: [{
+        formatter: 'verbose',
+        console: true
+      }]
+    }));
 });
 
 
