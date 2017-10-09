@@ -1,0 +1,39 @@
+@import '../pendo-base/base.css';
+
+/* Launcher Styes */
+._pendo-launcher_ {
+  & ._pendo-launcher-content_ {
+    border: 0;
+  }
+
+  & ._pendo-launcher-header_ {
+    border-bottom: 0;
+    margin-top: 25px;
+    padding-bottom: 0;
+
+    & ._pendo-launcher-title_::before {
+      background-color: var(--azure06);
+      border-radius: 50%;
+      color: var(--white);
+      content: "i";
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 700;
+      height: 25px;
+      line-height: 25px;
+      margin-right: 8px;
+      position: relative;
+      text-align: center;
+      top: -3px;
+      width: 25px;
+    }
+
+    & img {
+      display: none;
+    }
+  }
+
+  & ._pendo-launcher-guide-listing_ ._pendo-launcher-item_ {
+    margin-bottom: 0;
+  }
+}
