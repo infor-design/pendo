@@ -1,20 +1,14 @@
 /* gulp-config.js */
 module.exports = {
-  paths: {
-    base: {
-      root: 'pendo-styles'
-    },
-    sources: {
-      root:      'src',
-      packages:  'src/packages',
-      templates: 'site/templates',
-      site:      'site',
-      siteCss:   'site/www/css'
-    },
-    destinations: {
-      site:  'site/www',
-      dist: 'site/www/dist',
-      tmp: 'site/www/tmp'
-    }
+  root: 'pendo-styles',
+  src: {
+    root:      'src',
+    packages:  'src/packages',
+    templates: 'site/templates',
+    site:      'site',
+    siteCss:   'site/www/css'
+  },
+  dest: {
+    site:  'site/www'
   }
 };

@@ -20,17 +20,15 @@
 // Load gulp & config
 // gulp: The streaming build system
 // -------------------------------------
-const gulp   = require('gulp'),
-  gConfig    = require('./gulp-config.js'),
-  basePath   = gConfig.paths.base.root,
-  sourcePath = gConfig.paths.sources,
-  destPath   = gConfig.paths.destinations;
+const
+  gulp  = require('gulp'),
+  paths = require('./gulp-config.js');
 
 
 // -------------------------------------
 // Load "gulp-" plugins
 // -------------------------------------
-// gulp-concat       : Concatenate files
+// gulp-flatten      : Flatten file directories
 // gulp-gitmodified  : List modified files
 // gulp-hb           : Handlebars parser
 // gulp-pandoc       : File converter
@@ -40,7 +38,7 @@ const gulp   = require('gulp'),
 // gulp-tap          : Easily tap into a pipeline (debug)
 // gulp-util         : Utility functions
 // -------------------------------------
-const concat   = require('gulp-concat'),
+const
   flatten     = require('gulp-flatten'),
   gitmodified = require('gulp-gitmodified'),
   hb          = require('gulp-hb'),
@@ -106,11 +104,11 @@ gulp.task('build', ['compile:css'], () => {
   const packageData = require('./package.json');
 
   const hbStream = hb()
-      .partials(`${sourcePath.templates}/partials/*.hbs`)
+      .partials(`${paths.src.templates}/partials/*.hbs`)
       .data(RAW_CSS);
 
 
-  return gulp.src(`${sourcePath.packages}/**/README.md`)
+  return gulp.src(`${paths.src.packages}/**/README.md`)
 
     // Rename filename from readme to the folder name
     .pipe(rename((path) => {
@@ -126,7 +124,7 @@ gulp.task('build', ['compile:css'], () => {
       to: 'html5+yaml_metadata_block',
       ext: '.html',
       args: [
-        `--data-dir=${sourcePath.site}`, // looks for template dir inside data-dir
+        `--data-dir=${paths.src.site}`, // looks for template dir inside data-dir
         '--template=layout.html',
         '--table-of-contents',
         '--toc-depth=4',
@@ -136,7 +134,7 @@ gulp.task('build', ['compile:css'], () => {
       ]
     }))
     .pipe(flatten())
-    .pipe(gulp.dest(destPath.site));
+    .pipe(gulp.dest(paths.dest.site));
 });
 
 
@@ -146,7 +144,6 @@ gulp.task('build', ['compile:css'], () => {
 //   into a template later so the users
 //   can copy the raw string
 // -------------------------------------
-
 gulp.task('compile:css', () => {
   // Note: plugin order matters
   const plugins = [
@@ -157,7 +154,7 @@ gulp.task('compile:css', () => {
   ];
 
   // console.log(RAW_CSS)
-  return gulp.src(`${sourcePath.packages}/**/[!_]*.css`)
+  return gulp.src(`${paths.src.packages}/**/[!_]*.css`)
     .pipe(postcss(plugins, { map: false }))
     .pipe(tap((file, t) => {
       let filename = path.basename(file.path).replace('.css', '');
@@ -173,7 +170,7 @@ gulp.task('compile:css', () => {
 // -------------------------------------
 gulp.task('clean', () => {
   return del([
-    `${destPath.site}/*.html`
+    `${paths.dest.site}/*.html`
   ]);
 });
 
@@ -183,7 +180,8 @@ gulp.task('clean', () => {
 //   Lint the source css
 // -------------------------------------
 gulp.task('stylelint', () => {
-  return gulp.src([`${sourcePath.packages}/**/*.css`, `${sourcePath.siteCss}/site.css`])
+  return gulp.src([`${paths.src.packages}/**/*.css`, `${paths.src.siteCss}/site.css`])
+    .pipe(gitmodified(['modified']))
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
@@ -198,18 +196,7 @@ gulp.task('stylelint', () => {
 //   Task: Pre-commit
 //   Run things before committing
 // -------------------------------------
-gulp.task('pre-commit', () => {
-  // Lint only modified css files
-  return gulp.src(`${sourcePath.packages}/**/*.css`)
-    .pipe(gitmodified(['modified']))
-    .pipe(stylelint({
-      failAfterError: true,
-      reporters: [{
-        formatter: 'verbose',
-        console: true
-      }]
-    }));
-});
+gulp.task('pre-commit', ['stylelint']);
 
 
 // -------------------------------------
@@ -222,22 +209,25 @@ gulp.task('serve', () => {
     injectChanges: false,
     open: false,
     server: {
-      baseDir: [destPath.site]
+      baseDir: [paths.dest.site]
     },
     logLevel: 'info',
     logPrefix: 'Pendo',
     ui: false
   });
 
-  const srcMarkdown = [
-    `${sourcePath.templates}/**/*`,
-    `${sourcePath.packages}/**/*.md`,
-    `${sourcePath.packages}/**/*.css`,
-    `${sourcePath.siteCss}/*`
+  const toWatch = [
+    `${paths.src.templates}/**/*`,
+    `${paths.src.packages}/**/*.md`,
+    `${paths.src.packages}/**/*.css`,
+    `${paths.src.siteCss}/*`
   ];
 
   gulp
-    .watch(srcMarkdown, ['watch'])
+    .watch(toWatch, (done) => {
+      browserSync.reload();
+      done();
+    })
     .on('change', (evt) => {
       changeEvent(evt);
     });
@@ -245,18 +235,8 @@ gulp.task('serve', () => {
 
 
 // -------------------------------------
-//   Task: watch-files
-//   Guarantees reload is last task
-// -------------------------------------
-gulp.task('watch', ['build'], (done) => {
-  browserSync.reload();
-  done();
-});
-
-
-// -------------------------------------
 //   Function: changeEvent()
 // -------------------------------------
 function changeEvent(evt) {
-  gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + basePath + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
+  gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + paths.root + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
 }
