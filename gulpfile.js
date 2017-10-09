@@ -183,7 +183,7 @@ gulp.task('clean', () => {
 //   Lint the source css
 // -------------------------------------
 gulp.task('stylelint', () => {
-  return gulp.src(`${sourcePath.packages}/**/*.css`)
+  return gulp.src([`${sourcePath.packages}/**/*.css`, `${sourcePath.siteCss}/site.css`])
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
