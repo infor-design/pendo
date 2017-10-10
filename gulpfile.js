@@ -12,7 +12,6 @@
 //   'gulp stylelint'
 //   `gulp pre-commit'
 //   'gulp serve:site'
-//       'gulp watch'
 //
 // *************************************
 
@@ -93,7 +92,14 @@ let RAW_CSS = {};
 //   Task: Default
 //   Does a build and serves the website
 // -------------------------------------
-gulp.task('default', ['build', 'serve']);
+gulp.task('default', ['build']);
+
+
+// -------------------------------------
+//   Task: Default
+//   Does a build and serves the website
+// -------------------------------------
+gulp.task('dev', ['build', 'serve']);
 
 
 // -------------------------------------
@@ -153,7 +159,6 @@ gulp.task('compile:css', () => {
     cssnano({ autoprefixer: false })
   ];
 
-  // console.log(RAW_CSS)
   return gulp.src(`${paths.src.packages}/**/[!_]*.css`)
     .pipe(postcss(plugins, { map: false }))
     .pipe(tap((file, t) => {
