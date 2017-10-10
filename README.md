@@ -2,5 +2,8 @@
 
 To build the style guide and documentation website:
 
-- `gulp` = build
-- `gulp dev` = build & serve
+1. Clone the repo
+1. `npm install`
+1. Build/Serve
+    - `gulp` = build
+    - `gulp dev` = build & serve
