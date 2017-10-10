@@ -1,4 +1,4 @@
-# Pendo Soho Styleguide
+# Styles and Documentation website for Pendo.io styling
 
 To build the style guide and documentation website:
 
