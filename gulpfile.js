@@ -209,13 +209,6 @@ gulp.task('stylelint', () => {
 
 
 // -------------------------------------
-//   Task: Pre-commit
-//   Run things before committing
-// -------------------------------------
-gulp.task('pre-commit', ['stylelint']);
-
-
-// -------------------------------------
 //   Task: Serve Demo & site
 // -------------------------------------
 gulp.task('serve', () => {
