@@ -19,9 +19,20 @@
 // Load gulp & config
 // gulp: The streaming build system
 // -------------------------------------
-const
-  gulp  = require('gulp'),
-  paths = require('./gulp-config.js');
+const gulp  = require('gulp');
+const paths = {
+  root: 'pendo-styles',
+  src: {
+    root:      'src',
+    packages:  'src/packages',
+    templates: 'site/templates',
+    site:      'site',
+    siteCss:   'site/www/css'
+  },
+  dest: {
+    www:  'site/www'
+  }
+};
 
 
 // -------------------------------------
@@ -140,7 +151,7 @@ gulp.task('build', ['compile:css'], () => {
       ]
     }))
     .pipe(flatten())
-    .pipe(gulp.dest(paths.dest.site));
+    .pipe(gulp.dest(paths.dest.www));
 });
 
 
@@ -175,7 +186,7 @@ gulp.task('compile:css', () => {
 // -------------------------------------
 gulp.task('clean', () => {
   return del([
-    `${paths.dest.site}/*.html`
+    `${paths.dest.www}/*.html`
   ]);
 });
 
@@ -214,7 +225,7 @@ gulp.task('serve', () => {
     injectChanges: false,
     open: false,
     server: {
-      baseDir: [paths.dest.site]
+      baseDir: [paths.dest.www]
     },
     logLevel: 'info',
     logPrefix: 'Pendo',
@@ -236,6 +247,25 @@ gulp.task('serve', () => {
     .on('change', (evt) => {
       changeEvent(evt);
     });
+});
+
+// -------------------------------------
+//   Task: Serve Demo & site
+// -------------------------------------
+gulp.task('serve:prod', () => {
+  browserSync.init({
+    codesync: false,
+    index: 'base.html',
+    injectChanges: false,
+    open: false,
+    server: {
+      baseDir: [paths.dest.www]
+    },
+    logLevel: 'info',
+    logPrefix: 'Pendo',
+    port: 80,
+    ui: false
+  });
 });
 
 

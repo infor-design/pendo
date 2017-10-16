@@ -7,3 +7,4 @@ To build the style guide and documentation website:
 1. Build/Serve
     - `gulp` = build
     - `gulp dev` = build & serve
+    - `gulp serve:prod` = serve on port 80 for production
