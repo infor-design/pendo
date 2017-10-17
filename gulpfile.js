@@ -256,7 +256,7 @@ gulp.task('serve:prod', () => {
     },
     logLevel: 'info',
     logPrefix: 'Pendo',
-    port: 80,
+    port: 4000,
     ui: false
   });
 });
