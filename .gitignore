@@ -1,6 +1,7 @@
 # Compiled #
 ############
 site/www
+!site/www/css
 !site/www/images
 log/
 
