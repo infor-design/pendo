@@ -16,5 +16,7 @@ browserSync.init({
   logLevel: 'info',
   logPrefix: 'Pendo',
   port: 4000,
-  ui: false
+  ui: false,
+  notify: false,
+  ghostMode: false
 });
