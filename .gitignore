@@ -1,8 +1,6 @@
 # Compiled #
 ############
-site/www
-!site/www/css
-!site/www/images
+site/www/*.html
 log/
 
 # Packages #

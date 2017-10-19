@@ -1,0 +1,114 @@
+/* Adjust basic tags */
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+main,
+.content {
+  min-height: 100vh;
+}
+
+ul,
+ol {
+  margin-top: 8px;
+}
+
+ul li,
+ol li {
+  margin: 8px;
+}
+
+ul :last-child,
+ol :last-child {
+  margin-bottom: 0;
+}
+
+ul :first-child,
+ol :first-child {
+  margin-top: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table th {
+  background-color: #368ac0;
+  color: #fff;
+}
+
+table td {
+  vertical-align: top;
+}
+
+.img-lg {
+  max-width: 800px;
+}
+
+table img,
+.img-md {
+  max-width: 350px;
+}
+
+.img-sm {
+  max-width: 200px;
+}
+
+/* Style specific classes */
+.page-header {
+  background-color: #368ac0;
+  line-height: 50px;
+  padding: 0 8px 0 0;
+}
+
+.page-header h1 {
+  background: url('/images/infor-logo.png') 0 center no-repeat;
+  background-size: 52px;
+  color: #fff;
+  margin: 0;
+  padding-left: 60px;
+}
+
+.sidebar,
+.content {
+  float: left;
+  padding-left: 8px;
+}
+
+.sidebar {
+  position: absolute;
+  width: 300px;
+}
+
+.content {
+  border-left: solid 1px #368ac0;
+  margin-left: 300px;
+  padding: 0 20px;
+}
+
+.content nav {
+  margin-bottom: 40px;
+}
+
+code.sourceCode {
+  white-space: pre-line;
+}
+
+/*
+ * Actual very specific red style that should equal what is in pendo css
+ * and should be the equivalent of the "soho-red-alert" hex.
+ */
+.red-text {
+  color: #e84f4f;
+}
