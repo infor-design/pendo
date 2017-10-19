@@ -10,7 +10,6 @@
 //      'gulp compile:css'
 //   'gulp clean'
 //   'gulp stylelint'
-//   `gulp pre-commit'
 //   'gulp serve:site'
 //
 // *************************************

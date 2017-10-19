@@ -48,7 +48,6 @@
   },
   "scripts": {
     "preinstall": "npm install -g pandoc-bin gulp-cli",
-    "postinstall": "guppy pre-commit",
     "start": "gulp"
   },
   "browserslist": [
