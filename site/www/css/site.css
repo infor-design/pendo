@@ -73,7 +73,7 @@ table img,
 }
 
 .page-header h1 {
-  background: url('/images/infor-logo.png') 0 center no-repeat;
+  background: url('../images/infor-logo.png') 0 center no-repeat;
   background-size: 52px;
   color: #fff;
   margin: 0;
