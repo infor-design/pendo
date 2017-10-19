@@ -233,14 +233,17 @@ gulp.task('serve', () => {
   ];
 
   gulp
-    .watch(toWatch, (done) => {
-      browserSync.reload();
-      done();
-    })
+    .watch(toWatch, ['watchDone'])
     .on('change', (evt) => {
       changeEvent(evt);
     });
 });
+
+gulp.task('watchDone', (done) => {
+  browserSync.reload();
+  done();
+});
+
 
 // -------------------------------------
 //   Function: changeEvent()
