@@ -9,12 +9,10 @@ description: The badge configuration should be as follows to match the Soho them
 <table>
     <thead>
         <tr>
-            <th>Config</th>
             <th>Preview</th>
         </tr>
     </thead>
     <tr>
-        <td><img src="images/badge-config.png" alt="Badge config screenshot"/></td>
         <td><img src="images/badge-preview.png" alt="Bdage preview screenshot"/></td>
     </tr>
 </table>

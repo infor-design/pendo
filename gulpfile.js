@@ -239,7 +239,7 @@ gulp.task('serve', () => {
     });
 });
 
-gulp.task('watchDone', (done) => {
+gulp.task('watchDone', ['build'], (done) => {
   browserSync.reload();
   done();
 });
