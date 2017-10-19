@@ -243,26 +243,6 @@ gulp.task('serve', () => {
 });
 
 // -------------------------------------
-//   Task: Serve Demo & site
-// -------------------------------------
-gulp.task('serve:prod', () => {
-  browserSync.init({
-    codesync: false,
-    index: 'base.html',
-    injectChanges: false,
-    open: false,
-    server: {
-      baseDir: [paths.dest.www]
-    },
-    logLevel: 'info',
-    logPrefix: 'Pendo',
-    port: 4000,
-    ui: false
-  });
-});
-
-
-// -------------------------------------
 //   Function: changeEvent()
 // -------------------------------------
 function changeEvent(evt) {
