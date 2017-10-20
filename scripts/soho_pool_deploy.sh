@@ -1,6 +1,5 @@
 #!/bin/bash
 
-npm install
 gulp build
 
 API_USER=hookandloop
@@ -17,16 +16,12 @@ SWARM_URL=http://usalvlhlpool1.infor.com/swarmproxy
 
 # Create Dockerfile
 # Using the pendo-styles image to house the appication code.
-# We can create a general image, just need to agree on application file structure
-# and run commands.
 printf "
 FROM docker.infor.com/hookandloop/pendo-styles-base:1.0.0
 MAINTAINER Hook & Loop Dev <hookandloopjenkins@gmail.com>\n
 ADD ./site /app/site\n
-COPY ./package.json /app/
-COPY ./gulpfile.js /app/
-COPY ./gulp-config.js /app/\n
-RUN npm install gulp -g\n" > Dockerfile
+ADD ./scripts/prod-deploy.js /app/scripts/\n
+RUN npm install -g browser-sync\n" > Dockerfile
 
 # Build and push container
 docker build -t $REGISTRY/$ORG/$CONTAINER:$VERSION .
@@ -35,13 +30,13 @@ docker push $REGISTRY/$ORG/$CONTAINER:$VERSION
 # Remove Dockerfile
 rm -rf Dockerfile
 
-# Remove current running service
+# Remove current running service.
 curl -X DELETE -H "Content-Type: application/json" \
     -u $API_USER:$API_PASS \
     $SWARM_URL/rm_service \
     -d '{"name":"'"$CONTAINER-$(echo $VERSION | tr "." -)"'"}'
  
-# Add updated service
+# Add updated service.
 curl -X POST -H "Content-Type: application/json" \
     -u $API_USER:$API_PASS \
     $SWARM_URL/create_service \
