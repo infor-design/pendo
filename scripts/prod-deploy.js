@@ -7,7 +7,7 @@ const baseDir = 'site/www';
 
 browserSync.init({
   codesync: false,
-  index: 'base.html',
+  index: 'index.html',
   injectChanges: false,
   open: false,
   server: {

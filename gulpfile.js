@@ -213,7 +213,7 @@ gulp.task('stylelint', () => {
 gulp.task('serve', () => {
   browserSync.init({
     codesync: false,
-    index: 'base.html',
+    index: 'index.html',
     injectChanges: false,
     open: false,
     server: {
