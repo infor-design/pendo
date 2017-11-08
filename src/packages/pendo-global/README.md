@@ -5,7 +5,7 @@ description: This will add the styles into your global stylesheet settings.
 
 To add/update the global css:
 
-1. Triple click (or highlight and drag) the CSS code below and copy it (`right click, copy` OR `ctrl+c`).
+1. Highlight the CSS code below and copy it (`right click, copy` OR `ctrl+c`).
     {{> _cssCode cssStr=globalCss}}
 1. Go to your Pendo dashboard where you can edit guides.
 1. Click on Global Settings in the top right corner.

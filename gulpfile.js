@@ -161,6 +161,8 @@ gulp.task('build', ['compile:css'], () => {
 //   can copy the raw string
 // -------------------------------------
 gulp.task('compile:css', () => {
+  const packageData = require('./package.json');
+
   // Note: plugin order matters
   const plugins = [
     atImport,
@@ -172,8 +174,13 @@ gulp.task('compile:css', () => {
   return gulp.src(`${paths.src.packages}/**/[!_]*.css`)
     .pipe(postcss(plugins, { map: false }))
     .pipe(tap((file, t) => {
-      let filename = path.basename(file.path).replace('.css', '');
-      RAW_CSS[`${filename}Css`] = file.contents.toString();
+      const filename = path.basename(file.path).replace('.css', '');
+      const cssString = `/* ------------------------------
+ * -- Infor Styles v${packageData.version} ---
+ * ------------------------------ */
+ ${file.contents.toString()}`;
+
+      RAW_CSS[`${filename}Css`] = cssString;
     }));
 });
 
