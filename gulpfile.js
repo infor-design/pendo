@@ -49,7 +49,6 @@ const paths = {
 // -------------------------------------
 const
   flatten     = require('gulp-flatten'),
-  gitmodified = require('gulp-gitmodified'),
   hb          = require('gulp-hb'),
   pandoc      = require('gulp-pandoc'),
   postcss     = require('gulp-postcss'),
@@ -78,18 +77,14 @@ const browserSync   = require('browser-sync').create('localDocServer'),
 // postcss-for       : Allow at-for loops
 // postcss-variables : Allow at-vars in at-for loops
 // postcss-import    : Include css files with '@'
-// postcss-commas    : Allow lists of properties per value
 // postcss-cssnext   : Collection of future proof plugins
 // cssnano           : CSS minify
-// lost              : Grid system
 // -------------------------------------
 const atFor    = require('postcss-for'),
   atImport     = require('postcss-import'),
   atVariables  = require('postcss-at-rules-variables'),
-  commas       = require('postcss-commas'),
   cssnext      = require('postcss-cssnext'),
-  cssnano      = require('cssnano'),
-  lost         = require('lost');
+  cssnano      = require('cssnano');
 
 
 // -------------------------------------
@@ -203,7 +198,6 @@ gulp.task('clean', () => {
 // -------------------------------------
 gulp.task('stylelint', () => {
   return gulp.src([`${paths.src.packages}/**/*.css`, `${paths.src.siteCss}/site.css`])
-    .pipe(gitmodified(['modified']))
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
