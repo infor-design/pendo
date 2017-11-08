@@ -64,6 +64,7 @@ const
 // browserSync    : Method of serving sites
 // del            : Delete files
 // fs             : Read/sync file stream
+// path           : Path parser
 // -------------------------------------
 const browserSync   = require('browser-sync').create('localDocServer'),
   del               = require('del'),
@@ -115,18 +116,26 @@ gulp.task('build', ['compile:css'], () => {
   const packageData = require('./package.json');
 
   const hbStream = hb()
-      .partials(`${paths.src.templates}/partials/*.hbs`)
-      .data(RAW_CSS);
+    .partials(`${paths.src.templates}/partials/*.hbs`)
+    .data(RAW_CSS);
 
+  const filter = require('gulp-filter');
+  const readmeFilter = filter('*/packages/**/README.md', {restore: true})
 
-  return gulp.src(`${paths.src.packages}/**/README.md`)
+  return gulp.src(`${paths.src.root}/**/*.md`)
+
+    // Filter readme files to rename
+    .pipe(readmeFilter)
 
     // Rename filename from readme to the folder name
     .pipe(rename((path) => {
       path.basename = path.dirname.replace('pendo-', '');
     }))
 
-    // Adds raw css to pages with handlebars templates
+    // Restore filtered out files
+    .pipe(readmeFilter.restore)
+
+    // Adds raw css to pages with handlebars temtplates
     .pipe(hbStream)
 
     // Convert markdown to html and insert into layout template
@@ -137,12 +146,13 @@ gulp.task('build', ['compile:css'], () => {
       args: [
         `--data-dir=${paths.src.site}`, // looks for template dir inside data-dir
         '--template=layout.html',
-        '--table-of-contents',
-        '--toc-depth=4',
         `--variable=releaseversion:${packageData.version}`,
         `--variable=embeddedCss:${RAW_CSS}`,
         '--variable=lang:en'
       ]
+    }))
+    .pipe(rename((path) => {
+      path.basename = path.basename.toLowerCase();
     }))
     .pipe(flatten())
     .pipe(gulp.dest(paths.dest.www));
@@ -227,7 +237,7 @@ gulp.task('serve', () => {
 
   const toWatch = [
     `${paths.src.templates}/**/*`,
-    `${paths.src.packages}/**/*.md`,
+    `${paths.src.root}/**/*.md`,
     `${paths.src.packages}/**/*.css`,
     `${paths.src.siteCss}/*`
   ];
