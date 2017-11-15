@@ -3,56 +3,70 @@
 //   Build html files from markdown
 // -------------------------------------
 
-module.exports = (gulp, paths, rawCss) => {
+module.exports = (gulp, gconfig, rawCss) => {
 
-  gulp.task('build', ['compile:css'], () => {
+  gulp.task('build', ['src:css:compile', 'site:css:compile'], () => {
 
     const flatten = require('gulp-flatten');
-    const hb = require('gulp-hb');
-    const packageData = require('../../package.json');
-    const pandoc = require('gulp-pandoc');
+    const frontMatter = require('gulp-front-matter');
+    const fs = require('fs');
+    const handlebars = require('Handlebars');
+    const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
+    const pkgJson = require('../../package.json');
     const rename = require('gulp-rename');
+    const tap = require('gulp-tap');
+    const yaml = require('js-yaml');
 
-    const hbStream = hb()
-      .partials(`${paths.site.templates}/partials/*.hbs`)
-      .data(rawCss);
+    // Load sitemap for sidebar
+    const sitemap = yaml.safeLoad(
+      fs.readFileSync(`${gconfig.paths.src.root}/sitemap.yaml`, 'utf8')
+    );
 
-    const filter = require('gulp-filter');
-    const readmeFilter = filter('*/packages/**/README.md', {restore: true})
+    // read the template from page.hbs
+    return gulp.src(`${gconfig.paths.site.templates}/layout.hbs`)
+      .pipe(tap(file => {
 
-    return gulp.src(`${paths.src.root}/**/*.md`)
+        // file is page.hbs so generate template from file
+        const template = handlebars.compile(file.contents.toString());
 
-      // Filter readme files to rename
-      .pipe(readmeFilter)
+        // read all src markdown files
+        return gulp.src(`${gconfig.paths.src.root}/**/*.md`)
 
-      // Rename filename from readme to the folder name
-      .pipe(rename((path) => {
-        path.basename = path.dirname.replace('pendo-', '');
-      }))
+          // extract/remove yaml from MD
+          .pipe(frontMatter({
+            property: 'data.frontMatter'
+          }))
 
-      // Restore filtered out files
-      .pipe(readmeFilter.restore)
+          // convert from markdown and add syntax highlighting
+          .pipe(markdown(gconfig.options.marked))
 
-      // Adds raw css to pages with handlebars temtplates
-      .pipe(hbStream)
+          .pipe(tap(file => {
+            // file is the converted HTML from the markdown
+            // set the contents to the contents property on data
+            const data = {
+              contents: file.contents.toString(),
+              meta: file.data.frontMatter,
+              pkgJson: pkgJson,
+              sitemap: sitemap
+            };
 
-      // Convert markdown to html and insert into layout template
-      .pipe(pandoc({
-        from: 'markdown-markdown_in_html_blocks', // http://pandoc.org/MANUAL.html#raw-html
-        to: 'html5+yaml_metadata_block',
-        ext: '.html',
-        args: [
-          `--data-dir=${paths.site.root}`, // looks for template dir inside data-dir
-          '--template=layout.html',
-          `--variable=releaseversion:${packageData.version}`,
-          `--variable=embeddedCss:${rawCss}`,
-          '--variable=lang:en'
-        ]
-      }))
-      .pipe(rename((path) => {
-        path.basename = path.basename.toLowerCase();
-      }))
-      .pipe(flatten())
-      .pipe(gulp.dest(paths.site.www));
+            // we will pass data to the Handlebars template to create the actual HTML to use
+            const html = template(data);
+
+            // replace the file contents with the new HTML created from the Handlebars template + data object that contains the HTML made from the markdown conversion
+            file.contents = new Buffer(html, "utf-8");
+          }))
+
+          // Rename filename of package/*/readme.md files to folder name
+          .pipe(rename(file => {
+            if (file.basename.toLowerCase() === 'readme') {
+              file.basename = file.dirname.replace(`${gconfig.project.prefix}-`, '');
+            }
+          }))
+
+          // Flatten the directory structure
+          .pipe(flatten())
+          .pipe(gulp.dest(gconfig.paths.site.www));
+      }));
   });
 }

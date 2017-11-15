@@ -2,13 +2,13 @@
 //   Task: Stylelint
 // -------------------------------------
 
-module.exports = (gulp, paths) => {
+module.exports = (gulp, gconfig) => {
 
   gulp.task('stylelint', () => {
 
     const stylelint = require('gulp-stylelint');
 
-    return gulp.src([`${paths.src.packages}/**/*.css`, `${paths.site.css}/site.css`])
+    return gulp.src([`${gconfig.paths.src.packages}/**/*.css`])
       .pipe(stylelint({
         failAfterError: true,
         reporters: [{

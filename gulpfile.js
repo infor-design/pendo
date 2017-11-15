@@ -7,23 +7,9 @@
 // -------------------------------------
 // Load gulp & config
 // -------------------------------------
-const gulp  = require('gulp');
 
-const paths = {
-  root: './',
-  src: {
-    root:      './src',
-    packages:  './src/packages',
-  },
-  site: {
-    root:      './site',
-    css:       './site/www/css',
-    templates: './site/templates',
-    www:       './site/www'
-  },
-  dist: './publish',
-  tasks: './gulp/tasks'
-};
+const gulp = require('gulp');
+const gconfig = require('./gulp/gulp-config.js');
 
 // -------------------------------------
 //   Global Variables
@@ -34,11 +20,12 @@ let rawCss = {};
 // -------------------------------------
 //   Load Tasks
 // -------------------------------------
-require(`${paths.tasks}/build.js`)(gulp, paths, rawCss);
-require(`${paths.tasks}/clean.js`)(gulp, paths);
-require(`${paths.tasks}/compile-css.js`)(gulp, paths, rawCss);
-require(`${paths.tasks}/serve.js`)(gulp, paths);
-require(`${paths.tasks}/stylelint.js`)(gulp, paths);
+require(`${gconfig.paths.tasks}/build.js`)(gulp, gconfig, rawCss);
+require(`${gconfig.paths.tasks}/clean.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/site-css-compile.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/src-css-compile.js`)(gulp, gconfig, rawCss);
+require(`${gconfig.paths.tasks}/serve.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/stylelint.js`)(gulp, gconfig);
 
 
 // -------------------------------------

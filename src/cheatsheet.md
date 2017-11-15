@@ -20,9 +20,13 @@ Use a `<br>` to create a line break between text...<br>...This is a new line and
 This is line 1.<br>This is line 2.
 ```
 
-To mark a word in the Infor brand red, wrap the word(s) in a `span` tag and give the `span` a <span class="red-text">"red-text"</span> class.
+To color a word, wrap the word(s) in a `span` tag and give the `<span>` one of the following classes.
+
+This is <span class="red-text">red</span>.<br>
+This is <span class="blue-text">blue</span>.
 ```html
-This is a <span class="red-text">red word</span>.
+This is <span class="red-text">red</span>.
+This is <span class="blue-text">blue</span>.
 ```
 
 ### Lists

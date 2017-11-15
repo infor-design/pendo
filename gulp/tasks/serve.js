@@ -2,20 +2,19 @@
 //   Task: Serve
 // -------------------------------------
 
-module.exports = (gulp, paths) => {
+module.exports = (gulp, gconfig) => {
+
+  const browserSync = require('browser-sync').create('localDocServer');
+  const gutil = require('gulp-util');
 
   gulp.task('serve', () => {
-
-    const browserSync = require('browser-sync').create('localDocServer');
-    const gutil = require('gulp-util');
-
     browserSync.init({
       codesync: false,
       index: 'index.html',
       injectChanges: false,
       open: false,
       server: {
-        baseDir: [paths.site.www]
+        baseDir: [gconfig.paths.site.www]
       },
       logLevel: 'info',
       logPrefix: 'Pendo',
@@ -23,11 +22,15 @@ module.exports = (gulp, paths) => {
     });
 
     const toWatch = [
-      `${paths.src.root}/**/*.md`,
-      `${paths.src.packages}/**/*.css`,
-      `${paths.site.templates}/**/*`,
-      `${paths.site.css}/*`
+      `${gconfig.paths.src.root}/**/*[.md, .yaml]`,
+      `${gconfig.paths.src.packages}/**/*.css`,
+      `${gconfig.paths.site.templates}/**/*`,
+      `${gconfig.paths.site.www}/css/*`
     ];
+
+    const changeEvent = (evt) => {
+      gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + gconfig.paths.root + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
+    };
 
     gulp
       .watch(toWatch, ['watchDone'])
@@ -40,9 +43,4 @@ module.exports = (gulp, paths) => {
     browserSync.reload();
     done();
   });
-
-  function changeEvent(evt) {
-    gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + paths.root + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
-  }
-
 }

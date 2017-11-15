@@ -1,0 +1,10 @@
+sections:
+- name: Pendo Customizations
+  slug: index
+  pages:
+  - name: Configuration
+    slug: global
+  - name: Changelog
+    slug: changelog
+  - name: Cheatsheet
+    slug: cheatsheet

@@ -1,5 +1,4 @@
 /* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
-
 :root {
   --white: #fff;
 
@@ -13,5 +12,4 @@
 
   --alert-red: #e84f4f;
 }
-
 /* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */

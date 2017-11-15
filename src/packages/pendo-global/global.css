@@ -1,4 +1,4 @@
-@import '../pendo-index/_variables.css';
-@import '../pendo-index/index.css';
-@import '../pendo-banner/banner.css';
-@import '../pendo-launcher/launcher.css';
+@import 'css/variables.css';
+@import 'css/base.css';
+@import 'css/banner.css';
+@import 'css/launcher.css';

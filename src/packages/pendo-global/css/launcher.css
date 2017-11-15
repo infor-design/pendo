@@ -1,6 +1,8 @@
-@import '../pendo-index/index.css';
+@import 'variables.css';
 
-/* Launcher Styes */
+/*
+ * Launcher Styles
+ */
 ._pendo-launcher_ {
   & ._pendo-launcher-content_ {
     border: 0;

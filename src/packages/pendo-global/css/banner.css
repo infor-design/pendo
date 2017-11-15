@@ -1,6 +1,8 @@
-@import '../pendo-index/index.css';
+@import 'variables.css';
 
-/* Banner Styles */
+/*
+ * Banner Styles
+ */
 ._pendo-guide-banner-top_ > ._pendo-guide-container_ {
   /* Guide border, shadow, background, etc. */
   background-color: var(--azure01);
