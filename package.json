@@ -1,5 +1,5 @@
 {
-  "version": "0.2.2",
+  "version": "0.2.3",
   "name": "pendo-styles",
   "description": "Soho Pendo Styles",
   "author": "Hook & Loop",
@@ -8,30 +8,37 @@
     "type": "git",
     "url": "http://git.infor.com/users/clepore/repos/pendo-styles/browse"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@infor/documentation-css": "^0.1.4"
+  },
   "devDependencies": {
     "browser-sync": "^2.18.8",
     "del": "^2.2.2",
+    "flatten": "^1.0.2",
+    "fs": "0.0.1-security",
     "gulp": "^3.9.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-filter": "^5.0.1",
     "gulp-flatten": "^0.3.1",
+    "gulp-front-matter": "^1.3.0",
     "gulp-hb": "^6.0.2",
+    "gulp-markdown": "^1.2.0",
     "gulp-pandoc": "^0.2.2",
     "gulp-postcss": "^6.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-server-livereload": "^1.9.2",
     "gulp-stylelint": "^3.9.0",
     "gulp-tap": "^0.1.3",
     "gulp-util": "^3.0.8",
+    "handlebars": "^4.0.11",
+    "js-yaml": "^3.10.0",
     "postcss-at-rules-variables": "0.0.27",
     "postcss-cssnext": "^2.10.0",
     "postcss-for": "^2.1.1",
     "postcss-import": "^9.1.0",
+    "pygmentize-bundled": "^2.3.0",
     "stylelint-order": "^0.4.3"
   },
   "scripts": {
-    "preinstall": "npm install -g pandoc-bin gulp-cli",
     "start": "gulp",
     "test": "gulp stylelint"
   },

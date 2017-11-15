@@ -1,0 +1,10 @@
+sections:
+- name: Home
+  slug: index
+  pages:
+  - name: Configuration
+    slug: global
+  - name: Version Changelog
+    slug: changelog
+  - name: HTML Cheatsheet
+    slug: cheatsheet

@@ -3,7 +3,14 @@ title: Intro HTMLCheatsheet
 description: This document is to help you apply Hook & Loop’s Soho styles to Pendo elements in your app/system. All of the styles and CSS code shown below was taken directly from the Soho controls library v4.2.5. Example screenshots are also provided as a starting point to create your default Soho templates. Feel free to play around with the variables and HTML code to get your desired result.
 ---
 
-### Basic Text Formatting
+## Basic Text Formatting
+
+Use `<p>` tags to signify a paragraph with some space around it:
+```html
+
+<p>This is a paragraph with some text in it.</p>
+<p>This is another paragraph of text. There will be space inbetween paragraphs for readability and most aliginment will be left.</p>
+```
 
 Use `<strong>` tags to signify important text like <strong>this</strong>:
 ```html
@@ -20,12 +27,16 @@ Use a `<br>` to create a line break between text...<br>...This is a new line and
 This is line 1.<br>This is line 2.
 ```
 
-To mark a word in the Infor brand red, wrap the word(s) in a `span` tag and give the `span` a <span class="red-text">"red-text"</span> class.
+To color a word, wrap the word(s) in a `span` tag and give the `<span>` one of the following classes.
+
+This is <span class="red-text">red</span>.<br>
+This is <span class="blue-text">blue</span>.
 ```html
-This is a <span class="red-text">red word</span>.
+This is <span class="red-text">red</span>.
+This is <span class="blue-text">blue</span>.
 ```
 
-### Lists
+## Lists
 
 An ordered list tag (`<ol>`) uses numbers for each item.
 <ol>

@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108396187-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-108396187-1');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="generator" content="pandoc" />
+    <meta name="author" content="Hook & Loop">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{meta.title}} - Pendo.io Customization</title>
+    <link rel="stylesheet" type="text/css" href="/css/iux.min.css">
+    <link rel="stylesheet" type="text/css" href="/dist/documentation.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+  </head>
+
+  <body class="iux-container">
+
+    <header class="site-header">
+      <a class="logo" routerlink="/" href="/">
+        <img alt="" src="http://docs-site-staging.us-east-1.elasticbeanstalk.com/assets/logo.svg">
+        <span>Pendo.io Customization Guide v{{pkgJson.version}}</span>
+      </a>
+    </header>
+
+    <main class="iux-row">
+      <aside class="sidebar iux-row--col-sm-3 iux-row--col-md-3">
+        <nav class="sidebar-nav">
+          <ul class="iux-list--plain">
+            {{#each sitemap.sections}}
+            <li class="sidebar-nav__group">
+              <a href="/{{slug}}.html" class="sidebar-nav__child-item">{{this.name}}</a>
+              <ul class="iux-list--plain">
+                {{#each this.pages}}
+                <li>
+                  <a href="/{{slug}}.html" class="sidebar-nav__grandchild-item">{{this.name}}</a>
+                </li>
+                {{/each}}
+              </ul>
+            </li>
+            {{/each}}
+          </ul>
+        </nav>
+      </aside>
+
+      <div class="iux-row--col-sm-9 iux-row--col-md-9">
+        {{#if meta.title}}
+          <div class="hero">
+            <h1>{{meta.title}}</h1>
+            {{#if meta.demo }}
+              <a href="{{meta.demo.local.path}}" title="Demo for {{meta.title}}">View Live Demo</a>
+            {{/if}} {{#if meta.description}}
+              <p class="page-description">{{meta.description}}</p>
+            {{/if}}
+          </div>
+        {{/if}}
+
+        {{{ contents }}}
+      </div>
+    </main>
+  </body>
+</html>

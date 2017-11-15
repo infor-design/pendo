@@ -1,6 +1,8 @@
-@import '_variables.css';
+@import 'variables.css';
 
-/* Base Styles */
+/*
+ * Base Styles
+ */
 ._pendo-guide-container_ {
   background-color: var(--white);
   border-radius: 2px;
@@ -51,7 +53,11 @@
     }
 
     & .red-text {
-      color: #e84f4f;
+      color: var(--alert-red);
+    }
+
+    & .blue-text {
+      color: var(--azure06);
     }
   }
 

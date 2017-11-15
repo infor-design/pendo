@@ -1,12 +1,14 @@
 # Compiled #
 ############
 site/www/*.html
+site/www/dist
 log/
 
 # Packages #
 ############
 node_modules/
 npm-debug.log
+log/
 
 # OS generated files #
 ############
@@ -14,4 +16,7 @@ npm-debug.log
 .vscode
 *.swp
 
-*.sublime-*
+# Editor Files #
+*.sublime*
+*.vscode
+*.code-*
