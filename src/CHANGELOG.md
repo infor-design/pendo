@@ -1,11 +1,15 @@
 # Change Log
 
-## 0.2.3 (2017-11-16)
+## 0.2.3 (2017-11-15)
 
 ** Ehancements:**
 
-- Add new template styles for "What's New"
-- New documentation website styling
+Add new template styles for "What's New"
+- Added cheatsheet documentation for `<p></p>` tags [here](cheatsheet.html).
+- Added a `blue-text` class [here](cheatsheet.html).
+
+Website updates
+- New styling
 - Backend refactoring
 
 ## 0.2.2 (2017-11-08)
