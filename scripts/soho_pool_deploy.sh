@@ -1,7 +1,6 @@
 #!/bin/bash
 
-npm install
-gulp build
+npm prune && npm install && gulp
 
 API_USER=hookandloop
 API_PASS=hookandloop
