@@ -6,12 +6,12 @@ description: This document is to help you apply Hook & Loop’s Soho styles to P
 Follow the links on the left to setup and configure your pendo components to have that gorgeous <strong class="red-text">Infor</strong> look and feel.
 
 <ul>
-  <li><a href="global.html#global-styles">Global Styles (CSS)</a></li>
-  <li><a href="global.html#launcher-configuration">Launcher Config</a></li>
-  <li><a href="global.html#badge-configuration">Badge Config</a></li>
-  <li><a href="global.html#banner-configuration">Banner Config</a></li>
-  <li><a href="global.html#lightbox-configuration">Lightbox Config</a></li>
-  <li><a href="global.html#tooltip-configuration">Tooltip Config</a></li>
+  <li><a href="./global.html#global-styles">Global Styles (CSS)</a></li>
+  <li><a href="./global.html#launcher-configuration">Launcher Config</a></li>
+  <li><a href="./global.html#badge-configuration">Badge Config</a></li>
+  <li><a href="./global.html#banner-configuration">Banner Config</a></li>
+  <li><a href="./global.html#lightbox-configuration">Lightbox Config</a></li>
+  <li><a href="./global.html#tooltip-configuration">Tooltip Config</a></li>
   <li><a href="./changelog.html">Change Log</a></li>
 </ul>
 

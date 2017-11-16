@@ -9,7 +9,7 @@ To add/update the global css:
 
 1. *Select* (triple clicking the text is easiest) the CSS code below and then *copy* it.
 
-<iframe id="iframe-raw-css" src="/dist/global.min.css"></iframe>
+<iframe id="iframe-raw-css" src="./dist/global.min.css"></iframe>
 
 1. Go to your Pendo dashboard where you edit your guides.
 1. *Click* on "Global Settings" in the top right corner.

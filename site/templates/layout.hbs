@@ -36,11 +36,11 @@
           <ul class="iux-list--plain">
             {{#each sitemap.sections}}
             <li class="sidebar-nav__group">
-              <a href="/{{slug}}.html" class="sidebar-nav__child-item">{{this.name}}</a>
+              <a href="./{{slug}}.html" class="sidebar-nav__child-item">{{this.name}}</a>
               <ul class="iux-list--plain">
                 {{#each this.pages}}
                 <li>
-                  <a href="/{{slug}}.html" class="sidebar-nav__grandchild-item">{{this.name}}</a>
+                  <a href="./{{slug}}.html" class="sidebar-nav__grandchild-item">{{this.name}}</a>
                 </li>
                 {{/each}}
               </ul>
