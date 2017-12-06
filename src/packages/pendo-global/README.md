@@ -19,7 +19,7 @@ To add/update the global css:
 1. *Scroll down* in the input box to where there is a comment block that says `Your Custom Classes/IDs` (all the way at the bottom).
 1. *Paste* the copied CSS code underneath that comment block.
     - i.e. In the screenshot below you would paste on line 214.
-    - <img src="images/global-styles-config.png" class="img-sm" alt="Global styles config screenshot"/>
+    - <img src="assets/images/global-styles-config.png" class="img-sm" alt="Global styles config screenshot"/>
 1. *Click* Save.
 
 
@@ -37,7 +37,7 @@ The badge configuration should be as follows to match the Soho theme.
         </tr>
     </thead>
     <tr>
-        <td><img src="images/badge-preview.png" alt="Bdage preview screenshot"/></td>
+        <td><img src="assets/images/badge-preview.png" alt="Bdage preview screenshot"/></td>
     </tr>
 </table>
 
@@ -58,15 +58,15 @@ General styles will correlate to any content that is placed in the banner aside 
         </tr>
     </thead>
     <tr>
-        <td><img src="images/banner-config.png" alt="Banner config screenshot"/></td>
-        <td><img src="images/banner-html.png" alt="Banner html screenshot"/></td>
+        <td><img src="assets/images/banner-config.png" alt="Banner config screenshot"/></td>
+        <td><img src="assets/images/banner-html.png" alt="Banner html screenshot"/></td>
     </tr>
 </table>
 
 
 ### Banner preview
 
-<img src="images/banner.png" class="img-lg" alt="Example banner"/>
+<img src="assets/images/banner.png" class="img-lg" alt="Example banner"/>
 
 
 ## Launcher Configuration
@@ -84,8 +84,8 @@ The launcher configuration should be as follows to match the Soho theme.
         </tr>
     </thead>
     <tr>
-        <td><img src="images/launcher-config.png" alt="Launcher Config screenshot"/></td>
-        <td><img src="images/launcher-preview.png" alt="Launcher preview"/></td>
+        <td><img src="assets/images/launcher-config.png" alt="Launcher Config screenshot"/></td>
+        <td><img src="assets/images/launcher-preview.png" alt="Launcher preview"/></td>
     </tr>
 </table>
 
@@ -106,14 +106,14 @@ The styles will correlate to `<h1>`, `<p>`, and any `<button class="custom-butto
         </tr>
     </thead>
     <tr>
-        <td><img src="images/lightbox-variables.png" alt="lightbox variables screenshot"/></td>
-        <td><img src="images/lightbox-html.png" alt="lightbox html screenshot"/></td>
+        <td><img src="assets/images/lightbox-variables.png" alt="lightbox variables screenshot"/></td>
+        <td><img src="assets/images/lightbox-html.png" alt="lightbox html screenshot"/></td>
     </tr>
 </table>
 
 ### Lightbox Preview
 
-<img src="images/lightbox.png" class="img-md" alt="Lightbox preview"/>
+<img src="assets/images/lightbox.png" class="img-md" alt="Lightbox preview"/>
 
 
 ## Tooltip
@@ -137,8 +137,8 @@ The styles will correlate to `<h1>`, `<p>`, and any `<button class="custom-butto
         </tr>
     </thead>
     <tr>
-        <td><img src="images/tooltip-variables.png" alt="Tooltip variables screenshot"/></td>
-        <td><img src="images/tooltip-html.png" alt="Tooltip html screenshot"/></td>
+        <td><img src="assets/images/tooltip-variables.png" alt="Tooltip variables screenshot"/></td>
+        <td><img src="assets/images/tooltip-html.png" alt="Tooltip html screenshot"/></td>
     </tr>
 </table>
 
@@ -146,4 +146,4 @@ The styles will correlate to `<h1>`, `<p>`, and any `<button class="custom-butto
 
 Your tooltips should look like these:
 
-<img src="images/tooltips.png" alt="Tooltip example screenshot"/>
+<img src="assets/images/tooltips.png" alt="Tooltip example screenshot"/>
