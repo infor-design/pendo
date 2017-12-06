@@ -4,6 +4,7 @@ site/www/*.html
 site/www/dist
 site/www/lib
 log/
+dist/
 publish/
 *.zip
 
