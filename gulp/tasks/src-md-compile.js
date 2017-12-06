@@ -5,7 +5,7 @@
 
 module.exports = (gulp, gconfig, rawCss) => {
 
-  gulp.task('build', ['src:css:compile', 'site:css:compile'], () => {
+  gulp.task('src:md:compile', ['src:css:compile', 'site:css:compile'], () => {
 
     const flatten = require('gulp-flatten');
     const frontMatter = require('gulp-front-matter');

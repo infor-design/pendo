@@ -39,7 +39,7 @@ module.exports = (gulp, gconfig) => {
       });
   });
 
-  gulp.task('watchDone', ['build'], (done) => {
+  gulp.task('watchDone', ['src:md:compile'], (done) => {
     browserSync.reload();
     done();
   });
