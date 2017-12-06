@@ -1,7 +1,7 @@
 /* gulp-config.js */
 module.exports = {
   project: {
-    prefix: 'pendo',
+    prefix: 'pendo-',
     zipName: 'publish'
   },
   paths: {
@@ -21,6 +21,9 @@ module.exports = {
       www:       './site/www'
     },
     tasks: './gulp/tasks'
+  },
+  urls: {
+    staging: 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/'
   },
   options: {
     marked: {
