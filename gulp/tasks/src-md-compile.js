@@ -60,7 +60,7 @@ module.exports = (gulp, gconfig, rawCss) => {
           // Rename filename of package/*/readme.md files to folder name
           .pipe(rename(file => {
             if (file.basename.toLowerCase() === 'readme') {
-              file.basename = file.dirname.replace(`${gconfig.project.prefix}-`, '');
+              file.basename = file.dirname.replace(`${gconfig.project.prefix}`, '');
             }
           }))
 
