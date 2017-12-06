@@ -3,6 +3,8 @@
 site/www/*.html
 site/www/dist
 log/
+publish/
+*.zip
 
 # Packages #
 ############
