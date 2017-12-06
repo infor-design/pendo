@@ -96,7 +96,15 @@ module.exports = (gulp, gconfig) => {
   // Copy assets to dist folder to be zipped
   gulp.task('publish:copy:assets', () => {
     return gulp.src(`${gconfig.paths.site.www}/assets/**/*`)
-      .pipe(gulp.dest(`${gconfig.paths.dist.root}/assets`))
+      .pipe(gulp.dest(`${gconfig.paths.dist.assets}`))
+  });
+
+  // Get all raw css files and publish them as assets
+  // for the documents to reference
+  gulp.task('publish:copy:css', ['src:css:compile'], () => {
+    return gulp.src(`${gconfig.paths.src.packages}/*/dist/*.min.css`)
+      .pipe(flatten())
+      .pipe(gulp.dest(`${gconfig.paths.dist.assets}/css`))
   });
 
   // Convert MD files to JSON
@@ -155,7 +163,7 @@ module.exports = (gulp, gconfig) => {
   });
 
   // Zip the built files
-  gulp.task('publish:zip', ['publish:copy:assets', 'publish:md:json', 'publish:yaml:json'], () => {
+  gulp.task('publish:zip', [`publish:copy:css`, 'publish:copy:assets', 'publish:md:json', 'publish:yaml:json'], () => {
     const zip = require('gulp-zip');
 
     return gulp.src(`${gconfig.paths.dist.root}/**/*`)
