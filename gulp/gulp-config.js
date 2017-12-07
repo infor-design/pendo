@@ -1,21 +1,29 @@
 /* gulp-config.js */
 module.exports = {
   project: {
-    prefix: 'pendo',
+    prefix: 'pendo-',
+    zipName: 'publish'
   },
   paths: {
     root: './',
-    dist: './publish',
+    dist: {
+      root:   './publish',
+      docs:   './publish/docs',
+      assets: './publish/assets'
+    },
     src: {
-      root: './src',
+      root:     './src',
       packages: './src/packages',
     },
     site: {
-      root: './site',
+      root:      './site',
       templates: './site/templates',
-      www: './site/www'
+      www:       './site/www'
     },
     tasks: './gulp/tasks'
+  },
+  urls: {
+    staging: 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/'
   },
   options: {
     marked: {

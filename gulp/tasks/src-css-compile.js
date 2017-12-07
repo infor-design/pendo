@@ -31,15 +31,25 @@ module.exports = (gulp, gconfig, rawCss) => {
       cssnano({ autoprefixer: false })
     ];
 
-    return gulp.src(`${gconfig.paths.src.packages}/*/[!_]*.css`)
+    return gulp.src(`${gconfig.paths.src.packages}/*/*.css`)
       .pipe(postcss(plugins, { map: false }))
       .pipe(tap((file, t) => {
         const filename = path.basename(file.path).replace('.css', '');
         const cssString = `/* --- Infor Styles v${packageData.version} --- */${file.contents.toString()}`;
         file.contents = new Buffer(cssString, "utf-8");
       }))
-      .pipe(flatten())
       .pipe(rename({ suffix: '.min' }))
-      .pipe(gulp.dest(`${gconfig.paths.site.www}/dist`));
-  });
+
+      // Put in package folder dist
+      .pipe(rename((path) => {
+        path.dirname += '/dist';
+      }))
+      .pipe(gulp.dest(gconfig.paths.src.packages))
+
+      // Put in site dist
+      .pipe(rename((path) => {
+        path.dirname = 'dist';
+      }))
+      .pipe(gulp.dest(gconfig.paths.site.www))
+    });
 }

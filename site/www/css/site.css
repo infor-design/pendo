@@ -72,6 +72,7 @@ ol :first-child {
 #iframe-raw-css {
   background: #f0f1f5;
   border: solid 1px #f0f1f5;
-  padding: 10px 15px 15px;
+  height: 48px;
+  padding: 10px 15px;
   width: 90%;
 }
