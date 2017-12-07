@@ -50,6 +50,6 @@ module.exports = (gulp, gconfig, rawCss) => {
       .pipe(rename((path) => {
         path.dirname = 'dist';
       }))
-      .pipe(gulp.dest(gconfig.paths.site.www))
+      .pipe(gulp.dest(`${gconfig.paths.site.www}/assets`))
     });
 }
