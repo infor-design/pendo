@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@infor/documentation-css": "^0.1.4",
-    "@infor/iux-components": "^0.10.0-alpha"
+    "@infor/iux-components": "^0.10.0-alpha",
+    "yargs": "^10.0.3"
   },
   "devDependencies": {
     "browser-sync": "^2.18.8",

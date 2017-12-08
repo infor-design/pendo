@@ -8,6 +8,7 @@ To build the style guide and documentation website:
     - `gulp` = compile
     - `gulp dev` = compile & serve
     - `gulp publish` = build, zip, and deploy to documentation website
+        - `gulp publish --site=[local|pool]` = (Optional) The default is "local"
     - `node scripts/prod-deploy.js` = serve on port 80 for production (requires files to be built separately)
 
 Where to find stuff:
