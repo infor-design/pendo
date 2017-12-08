@@ -34,6 +34,7 @@ module.exports = (gulp, gconfig) => {
   const path = require('path');
   const rename  = require('gulp-rename');
   const runSequence = require('run-sequence');
+  const argv = require('yargs').argv
 
   let publishDocObj = {};
 
@@ -62,20 +63,27 @@ module.exports = (gulp, gconfig) => {
   // -------------------------------------
 
   gulp.task('publish:post', ['publish:zip'], (done) => {
+    let url = gconfig.urls.local;
+    if (argv.site) {
+      url = gconfig.urls[argv.site];
+    }
+
     const formData = require('form-data');
 
     let form = new formData();
     form.append('file', fs.createReadStream(`${gconfig.paths.dist.root}.zip`));
     form.append('root_path', `${packageJson.name}/${packageJson.version}`);
 
-    form.submit(gconfig.urls.staging, (err, res) => {
+    gutil.log(`Attempting to publish to '${url}'`);
+
+    form.submit(url, (err, res) => {
       if (err) {
         gutil.log(err);
       } else {
         if (res.statusCode == 200) {
-          gutil.log(`Status ${res.statusCode}: published to '${gconfig.urls.staging}'`);
+          gutil.log(`Success! Status ${res.statusCode}: published to '${url}'`);
         } else {
-          gutil.log(`Status ${res.statusCode}`);
+          gutil.log(`Failed! Status ${res.statusCode}`);
         }
         res.resume();
       }
