@@ -58,10 +58,12 @@ module.exports = (gulp, gconfig) => {
     runSequence('publish:clean', 'publish:post', done);
   });
 
+
   // -------------------------------------
   //   Sub Tasks
   // -------------------------------------
 
+  // Post data to docs site
   gulp.task('publish:post', ['publish:zip'], (done) => {
     let url = gconfig.urls.local;
     if (argv.site) {
@@ -112,7 +114,7 @@ module.exports = (gulp, gconfig) => {
   gulp.task('publish:copy:css', ['src:css:compile'], () => {
     return gulp.src(`${gconfig.paths.src.packages}/*/dist/*.min.css`)
       .pipe(flatten())
-      .pipe(gulp.dest(`${gconfig.paths.dist.assets}/css`))
+      .pipe(gulp.dest(`${gconfig.paths.dist.assets}/dist`))
   });
 
   // Convert MD files to JSON
