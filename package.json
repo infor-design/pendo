@@ -10,7 +10,7 @@
     "url": "http://git.infor.com/users/clepore/repos/pendo-styles/browse"
   },
   "dependencies": {
-    "@infor/documentation-css": "^0.1.4",
+    "@infor/documentation-css": "^0.1.8",
     "@infor/iux-components": "^0.10.0-alpha",
     "yargs": "^10.0.3"
   },

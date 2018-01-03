@@ -52,11 +52,11 @@
       text-decoration: none;
     }
 
-    & .red-text {
+    & .pendo-red-text {
       color: var(--alert-red);
     }
 
-    & .blue-text {
+    & .pendo-blue-text {
       color: var(--azure06);
     }
   }

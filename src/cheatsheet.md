@@ -29,8 +29,8 @@ This is line 1.<br>This is line 2.
 
 To color a word, wrap the word(s) in a `span` tag and give the `<span>` one of the following classes.
 
-This is <span class="red-text">red</span>.<br>
-This is <span class="blue-text">blue</span>.
+This is <span class="pendo-red-text">red</span>.<br>
+This is <span class="pendo-blue-text">blue</span>.
 ```html
 This is <span class="red-text">red</span>.
 This is <span class="blue-text">blue</span>.
