@@ -9,7 +9,7 @@ To add/update the global css:
 
 1. *Select* (triple clicking the text is easiest) the CSS code below and then *copy* it.
 
-<iframe id="iframe-raw-css" src="./assets/dist/global.min.css" scrolling="no"></iframe>
+<iframe id="pendo-iframe-css" src="./assets/dist/global.min.css" scrolling="no"></iframe>
 
 1. Go to your Pendo dashboard where you edit your guides.
 1. *Click* on "Global Settings" in the top right corner.
@@ -19,7 +19,7 @@ To add/update the global css:
 1. *Scroll down* in the input box to where there is a comment block that says `Your Custom Classes/IDs` (all the way at the bottom).
 1. *Paste* the copied CSS code underneath that comment block.
     - i.e. In the screenshot below you would paste on line 214.
-    - <img src="assets/images/global-styles-config.png" class="img-sm" alt="Global styles config screenshot"/>
+    - <img src="assets/images/global-styles-config.png" class="pendo-img-sm" alt="Global styles config screenshot"/>
 1. *Click* Save.
 
 
@@ -30,7 +30,7 @@ The badge configuration should be as follows to match the Soho theme.
 - Use the filled circle with the cutout `i` in the middle
 - The hexadecimal color is `#e84f4f` (aka "soho-alert-red")
 
-<table>
+<table class="pendo-example">
     <thead>
         <tr>
             <th>Preview</th>
@@ -50,7 +50,7 @@ This should give you the basics for creating a Soho-themed banner.
 
 General styles will correlate to any content that is placed in the banner aside from the bold text which can be explicitly done so with `<strong>` tags. The following is a basic scenario template to give you a description with some bold text.
 
-<table>
+<table class="pendo-example">
     <thead>
         <tr>
             <th>Config Variables</th>
@@ -66,7 +66,7 @@ General styles will correlate to any content that is placed in the banner aside 
 
 ### Banner preview
 
-<img src="assets/images/banner.png" class="img-lg" alt="Example banner"/>
+<img src="assets/images/banner.png" class="pendo-img-lg" alt="Example banner"/>
 
 
 ## Launcher Configuration
@@ -76,7 +76,7 @@ The launcher configuration should be as follows to match the Soho theme.
 - Use the `?` with the empty circle icon
 - The hexadecimal color is `#e84f4f` (aka "soho-alert-red")
 
-<table>
+<table class="pendo-example">
     <thead>
         <tr>
             <th>Config</th>
@@ -98,7 +98,7 @@ This should give you the basics for creating a Soho-themed lightbox.
 
 The styles will correlate to `<h1>`, `<p>`, and any `<button class="custom-button">` tags as seen by the preview to the right. The following is a basic scenario template to give you a title, body, and button.
 
-<table>
+<table class="pendo-example">
     <thead>
         <tr>
             <th>Config Variables</th>
@@ -113,7 +113,7 @@ The styles will correlate to `<h1>`, `<p>`, and any `<button class="custom-butto
 
 ### Lightbox Preview
 
-<img src="assets/images/lightbox.png" class="img-md" alt="Lightbox preview"/>
+<img src="assets/images/lightbox.png" class="pendo-img-md" alt="Lightbox preview"/>
 
 
 ## Tooltip
@@ -129,7 +129,7 @@ The styles will correlate to `<h1>`, `<p>`, and any `<button class="custom-butto
 > - Do not add a "button text" variable
 > - Do not add the `<button class="custom-button"></button>` tag in the html.
 
-<table>
+<table class="pendo-example">
     <thead>
         <tr>
             <th>Config Variables</th>
