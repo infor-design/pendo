@@ -1,13 +1,13 @@
 {
   "private": true,
   "version": "0.2.4",
-  "name": "pendo-styles",
-  "description": "Soho Pendo Styles",
+  "name": "ids-pendo",
+  "description": "Pendo Styles for Infor Design System",
   "author": "Hook & Loop",
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "http://git.infor.com/users/clepore/repos/pendo-styles/browse"
+    "url": "https://github.com/infor-design/ids-pendo"
   },
   "dependencies": {
     "@infor/documentation-css": "^0.1.8",
