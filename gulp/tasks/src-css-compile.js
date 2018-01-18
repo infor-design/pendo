@@ -8,8 +8,6 @@
 module.exports = (gulp, gconfig, rawCss) => {
 
   gulp.task('src:css:compile', () => {
-
-
     const atFor = require('postcss-for');
     const atImport = require('postcss-import');
     const atVariables  = require('postcss-at-rules-variables');

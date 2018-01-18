@@ -10,7 +10,8 @@
     "url": "https://github.com/infor-design/ids-pendo"
   },
   "dependencies": {
-    "@infor/documentation-css": "^0.1.17",
+    "@infor/documentation-css": "^0.1.19",
+    "@infor/ids-web": "^0.12.1",
     "yargs": "^10.0.3"
   },
   "devDependencies": {

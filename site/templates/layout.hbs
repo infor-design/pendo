@@ -15,27 +15,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{{meta.title}} - Pendo.io Customization</title>
+    <link rel="stylesheet" type="text/css" href="./lib/ids-reset.min.css">
+    <link rel="stylesheet" type="text/css" href="./lib/ids-web.min.css">
     <link rel="stylesheet" type="text/css" href="./lib/documentation.min.css">
     <link rel="stylesheet" type="text/css" href="./css/site.css">
   </head>
 
-  <body class="iux-container">
+  <body class="ids-container">
 
     <header class="site-header">
-      <a class="logo" routerlink="/" href="/">
-        <img alt="" src="http://docs-site-staging.us-east-1.elasticbeanstalk.com/assets/logo.svg">
+       <a class="logo" routerLink="/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="51" height="46" viewBox="0 0 51 46">
+          <style>
+            .a {
+              fill: #FFFFFE;
+            }
+            .b {
+              fill: #7A7C7A;
+            }
+          </style>
+          <g fill="none">
+            <g transform="translate(-40 -27)translate(40 27)">
+              <polygon points="0 46 46 46 46 0 0 0" fill="#C2252C" />
+              <polygon points="4.1 28.4 7 28.4 7 19 4.1 19" class="a" />
+              <path d="M8.6 19L11.4 19 11.4 19.9C11.4 19.9 11.8 18.8 14.1 18.8 17.1 18.8 17.6 20.7 17.6 23.2L17.6 28.4 14.7 28.4 14.7 23.8C14.7 22.7 14.7 21.3 13.2 21.3 11.7 21.3 11.5 22.5 11.5 23.7L11.5 28.4 8.6 28.4 8.6 19"
+                class="a" />
+              <path d="M19.2 17.3C19.2 15.3 19.7 13.5 22.9 13.5 23.5 13.5 24 13.6 24.6 13.7L24.4 16.2C24.1 16.1 23.8 16 23.5 16 22.6 16 22.1 16.3 22.1 17.5L22.1 19 24.2 19 24.2 21.3 22.1 21.3 22.1 28.4 19.2 28.4 19.2 17.3"
+                class="a" />
+              <path d="M29.9 26.1C31.3 26.1 32.2 25.1 32.2 23.7 32.2 22.3 31.3 21.3 29.9 21.3 28.4 21.3 27.5 22.3 27.5 23.7 27.5 25.1 28.4 26.1 29.9 26.1M29.9 18.8C32.8 18.8 35.1 20.7 35.1 23.7 35.1 26.7 32.8 28.7 29.9 28.7 27 28.7 24.6 26.7 24.6 23.7 24.6 20.7 27 18.8 29.9 18.8"
+                class="a" />
+              <path d="M36.2 19L39.1 19 39.1 19.8C39.1 19.8 39.9 18.6 42.9 18.8L42.9 21.3C42.5 21.2 42.1 21.1 41.6 21.1 39.4 21.1 39.1 22.7 39.1 24.6L39.1 28.4 36.2 28.4 36.2 19"
+                class="a" />
+              <polyline points="4.1 15.9 7 13.9 7 17.5 4.1 17.5 4.1 15.9" class="a" />
+              <polyline points="47.6 46 47.6 44.4 47.1 44.4 47.1 44.2 48.4 44.2 48.4 44.4 47.9 44.4 47.9 46 47.6 46" class="b" />
+              <polyline points="50.2 46 50.2 44.5 49.6 46 49.5 46 48.9 44.5 48.9 46 48.7 46 48.7 44.2 49 44.2 49.5 45.6 50.1 44.2 50.4 44.2 50.4 46 50.2 46"
+                class="b" />
+            </g>
+          </g>
+        </svg>
         <span>Pendo.io Customization Guide v{{pkgJson.version}}</span>
       </a>
     </header>
 
-    <main class="iux-row">
-      <aside class="sidebar iux-row--col-sm-3 iux-row--col-md-3">
+    <main class="ids-row--gutter">
+      <aside class="ids-row--col-sm-3 ids-row--col-md-3 sidebar">
         <nav class="sidebar-nav">
-          <ul class="iux-list--plain">
+          <ul class="ids-list--plain">
             {{#each sitemap.sections}}
             <li class="sidebar-nav__group">
-              <a href="./{{slug}}.html" class="sidebar-nav__child-item">{{this.name}}</a>
-              <ul class="iux-list--plain">
+              <span class="sidebar-nav__child-item">{{this.name}}</span>
+              <ul class="ids-list--plain">
                 {{#each this.pages}}
                 <li>
                   <a href="./{{slug}}.html" class="sidebar-nav__grandchild-item">{{this.name}}</a>
@@ -48,7 +77,7 @@
         </nav>
       </aside>
 
-      <div class="iux-row--col-sm-9 iux-row--col-md-9">
+      <div class="ids-row--col-sm-9 ids-row--col-md-9">
         {{#if meta.title}}
           <div class="hero">
             <h1>{{meta.title}}</h1>
