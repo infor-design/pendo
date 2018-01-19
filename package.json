@@ -12,6 +12,7 @@
   "dependencies": {
     "@infor/documentation-css": "^0.1.19",
     "@infor/ids-web": "^0.12.1",
+    "npm": "^5.6.0",
     "yargs": "^10.0.3"
   },
   "devDependencies": {

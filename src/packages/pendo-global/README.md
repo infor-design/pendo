@@ -8,9 +8,7 @@ description: This will add the styles into your global stylesheet settings and c
 To add/update the global css:
 
 1. *Select* (triple clicking the text is easiest) the CSS code below and then *copy* it.
-
-<iframe id="pendo-iframe-css" src="./assets/dist/global.min.css" scrolling="no"></iframe>
-
+    <iframe id="pendo-iframe-css" src="./assets/dist/global.min.css" scrolling="no"></iframe>
 1. Go to your Pendo dashboard where you edit your guides.
 1. *Click* on "Global Settings" in the top right corner.
 1. In the popup window, *select* the “Global CSS” tab.
