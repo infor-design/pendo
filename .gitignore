@@ -24,3 +24,7 @@ log/
 *.sublime*
 *.vscode
 *.code-*
+
+# Local files #
+############
+scripts/local_set_dev_vars.sh
