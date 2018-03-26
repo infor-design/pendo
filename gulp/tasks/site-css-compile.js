@@ -10,9 +10,7 @@ module.exports = (gulp, gconfig) => {
       './node_modules/@infor/ids-web/dist/ids-reset.min.css',
       './node_modules/@infor/ids-web/dist/ids-reset.min.css.map',
       './node_modules/@infor/ids-web/dist/ids-web.min.css',
-      './node_modules/@infor/ids-web/dist/ids-web.min.css.map',
-      './node_modules/@infor/documentation-css/dist/documentation.min.css',
-      './node_modules/@infor/documentation-css/dist/documentation.min.css.map'
+      './node_modules/@infor/ids-web/dist/ids-web.min.css.map'
     ])
       .pipe(gulp.dest(`${gconfig.paths.site.www}/lib`));
   });

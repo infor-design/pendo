@@ -51,22 +51,10 @@ module.exports = (gulp, gconfig) => {
     fs.mkdirSync(gconfig.paths.dist.docs);
   }
 
-  // -------------------------------------
-  //   Publish
-  // -------------------------------------
-  gulp.task('publish', (done) => {
-    runSequence('publish:clean', 'publish:post', done);
-  });
-
-
-  // -------------------------------------
-  //   Sub Tasks
-  // -------------------------------------
-
   // Post data to docs site
-  gulp.task('publish:post', ['publish:zip'], (done) => {
+  gulp.task('deploy:post', ['deploy:zip'], (done) => {
     let url = gconfig.urls.local;
-    if (argv.site) {
+    if (argv.site && Object.keys(gocnfig.urls.local).includes(argv.site)) {
       url = gconfig.urls[argv.site];
     }
 
@@ -75,6 +63,7 @@ module.exports = (gulp, gconfig) => {
     let form = new formData();
     form.append('file', fs.createReadStream(`${gconfig.paths.dist.root}.zip`));
     form.append('root_path', `${packageJson.name}/${packageJson.version}`);
+    form.append('post_auth_key', process.env.DOCS_API_KEY ? process.env.DOCS_API_KEY : "");
 
     gutil.log(`Attempting to publish to '${url}'`);
 
@@ -94,7 +83,7 @@ module.exports = (gulp, gconfig) => {
   });
 
   // Clean Publish files
-  gulp.task('publish:clean', () => {
+  gulp.task('deploy:clean', () => {
     const del = require('del');
 
     return del([
@@ -104,21 +93,21 @@ module.exports = (gulp, gconfig) => {
   });
 
   // Copy assets to dist folder to be zipped
-  gulp.task('publish:copy:assets', () => {
+  gulp.task('deploy:copy:assets', () => {
     return gulp.src(`${gconfig.paths.site.www}/assets/**/*`)
       .pipe(gulp.dest(`${gconfig.paths.dist.assets}`))
   });
 
   // Get all raw css files and publish them as assets
   // for the documents to reference
-  gulp.task('publish:copy:css', ['src:css:compile'], () => {
+  gulp.task('deploy:copy:css', ['src:css:compile'], () => {
     return gulp.src(`${gconfig.paths.src.packages}/*/dist/*.min.css`)
       .pipe(flatten())
       .pipe(gulp.dest(`${gconfig.paths.dist.assets}/dist`))
   });
 
   // Convert MD files to JSON
-  gulp.task('publish:md:json', () => {
+  gulp.task('deploy:md:json', () => {
     const frontMatter = require('gulp-front-matter');
     const markdown = require('gulp-markdown');
     const mdToJson = require('gulp-markdown-to-json');
@@ -143,12 +132,11 @@ module.exports = (gulp, gconfig) => {
       // Rename filename of package/*/readme.md files
       // to folder (package) name
       .pipe(rename(file => {
-        let lowerCaseName = file.basename.toLocaleLowerCase();
-        if (lowerCaseName === 'readme') {
+        file.basename = file.basename.toLowerCase();
+        if (file.basename === 'readme') {
           file.basename = helperFns.createFileNameFromFolder(file.dirname);
-        } else {
-          file.basename = lowerCaseName;
         }
+        file.extname = ".json";
       }))
 
       // Merge json data and write to json file
@@ -164,7 +152,7 @@ module.exports = (gulp, gconfig) => {
   });
 
   // Convert YAML files to JSON
-  gulp.task('publish:yaml:json', () => {
+  gulp.task('deploy:yaml:json', () => {
     const yaml = require('gulp-yaml');
 
     return gulp.src(`${gconfig.paths.src.root}/*.yaml`)
@@ -173,7 +161,7 @@ module.exports = (gulp, gconfig) => {
   });
 
   // Zip the built files
-  gulp.task('publish:zip', [`publish:copy:css`, 'publish:copy:assets', 'publish:md:json', 'publish:yaml:json'], () => {
+  gulp.task('deploy:zip', [`deploy:copy:css`, 'deploy:copy:assets', 'deploy:md:json', 'deploy:yaml:json'], () => {
     const zip = require('gulp-zip');
 
     return gulp.src(`${gconfig.paths.dist.root}/**/*`)
