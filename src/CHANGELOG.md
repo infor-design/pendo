@@ -2,6 +2,10 @@
 title: Change Log
 ---
 
+## 1.0 (2018-03-29)
+
+Released 1.0 as part of Infor Design System release.
+
 ## v0.2.3 (2017-11-15)
 
 ** Ehancements:**
