@@ -54,7 +54,7 @@ module.exports = (gulp, gconfig) => {
   // Post data to docs site
   gulp.task('deploy:post', ['deploy:zip'], (done) => {
     let url = gconfig.urls.local;
-    if (argv.site && Object.keys(gocnfig.urls.local).includes(argv.site)) {
+    if (argv.site && Object.keys(gconfig.urls.local).includes(argv.site)) {
       url = gconfig.urls[argv.site];
     }
 
