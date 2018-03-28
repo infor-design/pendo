@@ -36,7 +36,10 @@ require(`${gconfig.paths.tasks}/stylelint.js`)(gulp, gconfig);
 //   Common Tasks
 // -------------------------------------
 gulp.task('default', ['src:md:compile']);
-gulp.task('dev', ['src:md:compile', 'serve']);
+
+gulp.task('dev', ['clean'], done => {
+  runSequence('src:md:compile', 'serve', done)
+});
 
 
 gulp.task('publish', (done) => {

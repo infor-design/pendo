@@ -1,14 +1,5 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108396187-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-108396187-1');
-    </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta name="author" content="Hook & Loop">
@@ -16,15 +7,14 @@
 
     <title>{{meta.title}} - Pendo.io Customization</title>
     <link rel="stylesheet" type="text/css" href="./lib/ids-reset.min.css">
-    <link rel="stylesheet" type="text/css" href="./lib/ids-web.min.css">
-    <link rel="stylesheet" type="text/css" href="./lib/documentation.min.css">
+    <link rel="stylesheet" type="text/css" href="./lib/ids-css.min.css">
     <link rel="stylesheet" type="text/css" href="./css/site.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro" rel="stylesheet">
   </head>
 
   <body class="ids-container">
-
-    <header class="site-header">
-       <a class="logo" routerLink="/">
+     <header class="site-header ids-container">
+      <a href="/" class="logo">
         <svg xmlns="http://www.w3.org/2000/svg" width="51" height="46" viewBox="0 0 51 46">
           <style>
             .a {
@@ -57,27 +47,40 @@
       </a>
     </header>
 
-    <main class="ids-row--gutter">
-      <aside class="ids-row--col-sm-3 ids-row--col-md-3 sidebar">
-        <nav class="sidebar-nav">
-          <ul class="ids-list--plain">
-            {{#each sitemap.sections}}
-            <li class="sidebar-nav__group">
-              <span class="sidebar-nav__child-item">{{this.name}}</span>
-              <ul class="ids-list--plain">
+    <main class="ids-row">
+      <aside class="ids-row--col-sm-3">
+        <ul class="ids-list ids-list--hover ids-container">
+          {{#each sitemap.sections}}
+            {{#if this.slug}}
+              <li><a href="/{{slug}}.html" class="ids-list--item">{{this.name}}</a></li>
+            {{else}}
+            <li class="ids-list--heading">{{this.name}}</li>
+            {{/if}}
+              <ul class="ids-list">
                 {{#each this.pages}}
-                <li>
-                  <a href="./{{slug}}.html" class="sidebar-nav__grandchild-item">{{this.name}}</a>
-                </li>
+                {{#if this.slug}}
+                <li><a href="/{{slug}}.html" class="ids-list--item">{{this.name}}</a></li>
+                {{else}}
+                <li class="ids-list--heading">{{this.name}}</li>
+                {{/if}}
+                  {{#if this.pages}}
+                    <ul class="ids-list">
+                      {{#each this.pages}}
+                        {{#if this.slug}}
+                          <li><a href="/{{slug}}.html" class="ids-list--item">{{this.name}}</a></li>
+                        {{else}}
+                          <li class="ids-list--heading">{{this.name}}</li>
+                        {{/if}}
+                      {{/each}}
+                    </ul>
+                  {{/if}}
                 {{/each}}
               </ul>
             </li>
-            {{/each}}
-          </ul>
-        </nav>
+          {{/each}}
+        </ul>
       </aside>
-
-      <div class="ids-row--col-sm-9 ids-row--col-md-9">
+      <div class="ids-row--col-sm-8">
         {{#if meta.title}}
           <div class="hero">
             <h1>{{meta.title}}</h1>
