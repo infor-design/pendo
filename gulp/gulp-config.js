@@ -24,7 +24,7 @@ module.exports = {
   },
   urls: {
     local: 'http://localhost/api/docs/',
-    localdev: 'http://localhost:9002/api/docs/',
+    localDebug: 'http://localhost:9002/api/docs/',
     staging: 'https://staging.design.infor.com/api/docs/',
     prod: 'https://design.infor.com/api/docs/'
   },
