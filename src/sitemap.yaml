@@ -1,6 +1,8 @@
 sections:
 - name: Getting Started
   slug: index
+- name: Configuration
+  slug: global
 - name: Changelog
   slug: changelog
 - name: HTML Cheatsheet
