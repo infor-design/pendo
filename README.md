@@ -13,12 +13,12 @@ To build the style guide and documentation website:
 
 Where to find stuff:
 - `src/`
-- - `packages` Where the components are with the raw code (css) and readme's
+    - `packages` Where the components are with the raw code (css) and readme's
 - `site/`
-- - `templates` They shared handlebar templates for the content
-- - `www/` The served files
-- - - `css` Commited styles for site function
-- - - `images` Commited asssets
-- - - `dist` compiled styles
+    - `templates` They shared handlebar templates for the content
+    - `www/` The served files
+        - `css` Commited styles for site function
+        - `images` Commited asssets
+        - `dist` compiled styles
 - `gulp/`
-- - `tasks` Where we keep the gulp tasks
+    - `tasks` Where we keep the gulp tasks
